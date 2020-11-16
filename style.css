@@ -2,10 +2,80 @@
 
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css');
 
-*{
+*{ /* Todos os itens da pagina*/
     margin: 0;
     padding: 0;
+    list-style: none; /* Esta propriedade remove as bolinhas dos links */
+    text-decoration: none; /* Retira o sublinhado do link */
 }
+:root{
+    --font-primary: "Baloo Da 2", serif;
+    --font-secundary: "Josefin Slab", serif;
+    --font-action: "Mulish", serif;
+    --color-actions: #38ef7d; 
+}
+.hamburguer{
+   /* background-color: red; */
+    width: 2rem;
+    height: 2rem;
+    position: fixed;
+    z-index: 100; /* A z-index propriedade especifica a ordem da pilha de um elemento.*/
+    right: 2rem;
+    top: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    cursor: pointer;
+    transition: all 0.5s;
+}
+.show-menu .hamburguer{
+    right: 16rem;
+}
+.line{
+    width: 100%;
+    height: .1rem;
+    background-color: #fff;
+    box-shadow: .1rem .1rem 1px #000;
+    transition: transform 0.8s;
+}
+.show-menu #line1{
+    transform: rotate(45deg) translate(.3rem, 0.45rem);
+}
+.show-menu #line2{
+    opacity: 0;
+    visibility: hidden;
+}
+.show-menu #line3{
+    transform: rotate(-45deg) translate(.3rem, -0.45rem);
+}
+/* AREA SPAN => Deixado como comentario por não ser tão relevante (Feito apenas por fins didáticos)
+.hamburguer span{
+    position: absolute;
+    left: 3rem;
+    height: 2rem;
+    width: 5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--color-actions);   
+    color:#fff;
+    font-family: var(--font-action);
+    opacity: 0;
+}
+
+.hamburguer span::before{
+    content: "";
+    position: absolute;
+    border-right: .5rem solid var(--color-actions);
+    border-top: .5rem solid transparent;
+    border-left: .5rem solid transparent;
+    border-bottom: .5rem solid transparent;
+    left: -1rem;
+}
+.show-menu .hamburguer:hover span{
+    opacity: 1;
+}
+*/
 header{
     width: 100%;
     height: 100vh; /* unidade de medida css (vh) viewport height.*/
@@ -15,7 +85,7 @@ header{
 .img-wrapper{
     width: 100%;
     height: 100%; 
-    overflow: hidden;
+    overflow: hidden; /* Remove as barras de rolagem */
     background-color: rgba(0,0,0,.8); /* rgb + alpha */
 }
 .img-wrapper img{
@@ -41,7 +111,7 @@ header{
 .banner h1{
     color: #fff;
     font-size: 3.5rem; /*unidade EM é referente ao elemento pai. R de EM significa root, ou seja, será referente a medida principal da pagina*/
-    font-family: "Baloo Da 2", serif;
+    font-family: var(--font-primary);
     font-weight: 200;
     text-shadow: .2rem .3rem 2px rgba(0,0,0,.4);
     line-height: 3.5rem;
@@ -50,7 +120,7 @@ header{
     animation: moveBanner 1s 0.5s forwards;
 }
 .banner p{
-    font-family: "Josefin Slab", serif; 
+    font-family: var(--font-secundary);
     color: #fff;
     font-size: 2rem;
     text-shadow: .2rem .2rem rgba(0,0,0,.4);
@@ -59,7 +129,7 @@ header{
     animation: moveBanner 1s 0.7s forwards;
 }
 .banner button{
-   font-family: "Mulish", serif; 
+   font-family: var(--font-action);
    color:#fff;
    text-transform: uppercase;
    letter-spacing: .1rem;
@@ -71,11 +141,9 @@ header{
    border-radius: 7px;
    cursor: pointer;
    opacity: 0;
-   animation: moveBanner 1s 0.9s forwards;
+   animation: moveBanner 1s 0.9s forwards; 
 }
-.banner button:hover{
-    opacity: 0.8;
-}
+
 @keyframes moveBanner{
     0%{
         transform: translateY(10rem) rotateY(-30deg);
@@ -84,4 +152,75 @@ header{
         transform: translateY(0) rotateY(0);
         opacity: 1;
     }
+}
+
+.banner button:hover{
+    opacity: 0.8;
+    animation: pulse 0.8s infinite;
+}
+
+@keyframes pulse{
+    0%{
+        transform: scale(1);
+    }
+    50%{
+        transform: scale(1.1);
+    }
+    100%{
+        transform: scale(1);
+    }
+}
+
+.sidebar{
+   width: 20rem;
+   height: 100vh;
+   background-color:#fff;
+   position: fixed;
+   top:0;
+   right: -20rem;
+   transition: all 0.5s;
+}
+.show-menu .sidebar{
+   right: 0;
+}
+.menu{
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%); /*eixo X, Y*/   
+}
+.menu-item{
+    text-align: center;
+    margin-bottom: .5rem;
+}
+.menu-link{
+    font-family: var(--font-action);
+    font-size: 2rem;
+    color: #555;
+    transition: color 0.7s;
+}
+.menu-link:hover{
+    color: var(--color-actions);
+}
+.social-midia{
+    position: absolute;
+    bottom: 2rem;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+.social-midia i{
+    background-color: var(--color-actions);
+    color: #fff;
+    height: 2rem;
+    width: 2rem;
+    font-size: 1.4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    transition: background-color 0.6s;
+}
+.social-midia i:hover{
+    background-color:#1bd80a;
 }
