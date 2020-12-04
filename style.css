@@ -3,224 +3,296 @@
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css');
 
 *{ /* Todos os itens da pagina*/
-    margin: 0;
-    padding: 0;
-    list-style: none; /* Esta propriedade remove as bolinhas dos links */
-    text-decoration: none; /* Retira o sublinhado do link */
+	margin: 0;
+	padding: 0;
+	list-style: none; /* Esta propriedade remove as bolinhas dos links */
+	text-decoration: none; /* Retira o sublinhado do link */
 }
 :root{
-    --font-primary: "Baloo Da 2", serif;
-    --font-secundary: "Josefin Slab", serif;
-    --font-action: "Mulish", serif;
-    --color-actions: #38ef7d; 
+	--font-primary: "Baloo Da 2", serif;
+	--font-secundary: "Josefin Slab", serif;
+	--font-action: "Mulish", serif;
+	--color-actions: #38ef7d; 
 }
 .hamburguer{
-   /* background-color: red; */
-    width: 2rem;
-    height: 2rem;
-    position: fixed;
-    z-index: 100; /* A z-index propriedade especifica a ordem da pilha de um elemento.*/
-    right: 2rem;
-    top: 2rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    cursor: pointer;
-    transition: all 0.5s;
+	/* background-color: red; */
+	width: 2rem;
+	height: 2rem;
+	position: fixed;
+	z-index: 100; /* A z-index propriedade especifica a ordem da pilha de um elemento.*/
+	right: 2rem;
+	top: 2rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+	cursor: pointer;
+	transition: all 0.5s;
 }
 .show-menu .hamburguer{
-    right: 16rem;
+	right: 16rem;
 }
 .line{
-    width: 100%;
-    height: .1rem;
-    background-color: #fff;
-    box-shadow: .1rem .1rem 1px #000;
-    transition: transform 0.8s;
+	width: 100%;
+	height: .1rem;
+	background-color: #fff;
+	box-shadow: .1rem .1rem 1px #000;
+	transition: transform 0.8s;
 }
 .show-menu #line1{
-    transform: rotate(45deg) translate(.3rem, 0.45rem);
+	transform: rotate(45deg) translate(.3rem, 0.45rem);
 }
 .show-menu #line2{
-    opacity: 0;
-    visibility: hidden;
+	opacity: 0;
+	visibility: hidden;
 }
 .show-menu #line3{
-    transform: rotate(-45deg) translate(.3rem, -0.45rem);
+	transform: rotate(-45deg) translate(.3rem, -0.45rem);
 }
 /* AREA SPAN => Deixado como comentario por não ser tão relevante (Feito apenas por fins didáticos)
 .hamburguer span{
-    position: absolute;
-    left: 3rem;
-    height: 2rem;
-    width: 5rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: var(--color-actions);   
-    color:#fff;
-    font-family: var(--font-action);
-    opacity: 0;
+	position: absolute;
+	left: 3rem;
+	height: 2rem;
+	width: 5rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: var(--color-actions);   
+	color:#fff;
+	font-family: var(--font-action);
+	opacity: 0;
 }
 
 .hamburguer span::before{
-    content: "";
-    position: absolute;
-    border-right: .5rem solid var(--color-actions);
-    border-top: .5rem solid transparent;
-    border-left: .5rem solid transparent;
-    border-bottom: .5rem solid transparent;
-    left: -1rem;
+	content: "";
+	position: absolute;
+	border-right: .5rem solid var(--color-actions);
+	border-top: .5rem solid transparent;
+	border-left: .5rem solid transparent;
+	border-bottom: .5rem solid transparent;
+	left: -1rem;
 }
 .show-menu .hamburguer:hover span{
-    opacity: 1;
+	opacity: 1;
 }
 */
 header{
-    width: 100%;
-    height: 100vh; /* unidade de medida css (vh) viewport height.*/
-    overflow: hidden;
-    position: relative;
+	width: 100%;
+	height: 100vh; /* unidade de medida css (vh) viewport height.*/
+	overflow: hidden;
+	position: relative;
 }
 .img-wrapper{
-    width: 100%;
-    height: 100%; 
-    overflow: hidden; /* Remove as barras de rolagem */
-    background-color: rgba(0,0,0,.8); /* rgb + alpha */
+	width: 100%;
+	height: 100%; 
+	overflow: hidden; /* Remove as barras de rolagem */
+	background-color: rgba(0,0,0,.8); /* rgb + alpha */
 }
 .img-wrapper img{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    opacity: 0.5;
-    animation: zoom 10s;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	opacity: 0.5;
+	animation: zoom 10s;
 }
 @keyframes zoom{    /* Animação da img background*/
-    0%{
-        transform: scale(1.6);
-    }
-    100%{
-        transform: scale(1);
-    }
+	0%{
+		transform: scale(1.6);
+	}
+	100%{
+		transform: scale(1);
+	}
 }
 .banner{
-    position: absolute;
-    top: 30%;
-    left: 15%;
+	position: absolute;
+	top: 30%;
+	left: 15%;
 }
 .banner h1{
-    color: #fff;
-    font-size: 3.5rem; /*unidade EM é referente ao elemento pai. R de EM significa root, ou seja, será referente a medida principal da pagina*/
-    font-family: var(--font-primary);
-    font-weight: 200;
-    text-shadow: .2rem .3rem 2px rgba(0,0,0,.4);
-    line-height: 3.5rem;
-    margin-bottom: 2rem;
-    opacity: 0;
-    animation: moveBanner 1s 0.5s forwards;
+	color: #fff;
+	font-size: 3.5rem; /*unidade EM é referente ao elemento pai. R de EM significa root, ou seja, será referente a medida principal da pagina*/
+	font-family: var(--font-primary);
+	font-weight: 200;
+	text-shadow: .2rem .3rem 2px rgba(0,0,0,.4);
+	line-height: 3.5rem;
+	margin-bottom: 2rem;
+	opacity: 0;
+	animation: moveBanner 1s 0.5s forwards;
 }
 .banner p{
-    font-family: var(--font-secundary);
-    color: #fff;
-    font-size: 2rem;
-    text-shadow: .2rem .2rem rgba(0,0,0,.4);
-    margin-bottom: 2rem;
-    opacity: 0;
-    animation: moveBanner 1s 0.7s forwards;
+	font-family: var(--font-secundary);
+	color: #fff;
+	font-size: 2rem;
+	text-shadow: .2rem .2rem rgba(0,0,0,.4);
+	margin-bottom: 2rem;
+	opacity: 0;
+	animation: moveBanner 1s 0.7s forwards;
 }
 .banner button{
-   font-family: var(--font-action);
-   color:#fff;
-   text-transform: uppercase;
-   letter-spacing: .1rem;
-   background: #11998e;  /* fallback for old browsers */
-   background: -webkit-linear-gradient(to right, #38ef7d, #11998e);
-   background: linear-gradient(to left, #38ef7d, #11998e); 
-   padding: 1rem 3rem;
-   border:none;
-   border-radius: 7px;
-   cursor: pointer;
-   opacity: 0;
-   animation: moveBanner 1s 0.9s forwards; 
+	font-family: var(--font-action);
+	color:#fff;
+	text-transform: uppercase;
+	letter-spacing: .1rem;
+	background: #11998e;  /* fallback for old browsers */
+	background: -webkit-linear-gradient(to right, #38ef7d, #11998e);
+	background: linear-gradient(to left, #38ef7d, #11998e); 
+	padding: 1rem 3rem;
+	border:none;
+	border-radius: 7px;
+	cursor: pointer;
+	opacity: 0;
+	animation: moveBanner 1s 0.9s forwards; 
 }
 
 @keyframes moveBanner{
-    0%{
-        transform: translateY(10rem) rotateY(-30deg);
-    }
-    100%{
-        transform: translateY(0) rotateY(0);
-        opacity: 1;
-    }
+	0%{
+		transform: translateY(10rem) rotateY(-30deg);
+	}
+	100%{
+		transform: translateY(0) rotateY(0);
+		opacity: 1;
+	}
 }
 
 .banner button:hover{
-    opacity: 0.8;
-    animation: pulse 0.8s infinite;
+	opacity: 0.8;
+	animation: pulse 0.8s infinite;
 }
 
 @keyframes pulse{
-    0%{
-        transform: scale(1);
-    }
-    50%{
-        transform: scale(1.1);
-    }
-    100%{
-        transform: scale(1);
-    }
+	0%{
+		transform: scale(1);
+	}
+	50%{
+		transform: scale(1.1);
+	}
+	100%{
+		transform: scale(1);
+	}
 }
 
 .sidebar{
-   width: 20rem;
-   height: 100vh;
-   background-color:#fff;
-   position: fixed;
-   top:0;
-   right: -20rem;
-   transition: all 0.5s;
+	width: 20rem;
+	height: 100vh;
+	background-color:#fff;
+	position: fixed;
+	top:0;
+	right: -20rem;
+	transition: all 0.5s;
 }
 .show-menu .sidebar{
-   right: 0;
+	right: 0;
 }
 .menu{
-    position: absolute;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%, -50%); /*eixo X, Y*/   
+	position: absolute;
+	top: 40%;
+	left: 50%;
+	transform: translate(-50%, -50%); /*eixo X, Y*/   
 }
 .menu-item{
-    text-align: center;
-    margin-bottom: .5rem;
+	text-align: center;
+	margin-bottom: .5rem;
 }
 .menu-link{
-    font-family: var(--font-action);
-    font-size: 2rem;
-    color: #555;
-    transition: color 0.7s;
+	font-family: var(--font-action);
+	font-size: 2rem;
+	color: #555;
+	transition: color 0.7s;
 }
 .menu-link:hover{
-    color: var(--color-actions);
+	color: var(--color-actions);
 }
 .social-midia{
-    position: absolute;
-    bottom: 2rem;
-    width: 100%;
-    display: flex;
-    justify-content: space-evenly;
+	position: absolute;
+	bottom: 2rem;
+	width: 100%;
+	display: flex;
+	justify-content: space-evenly;
 }
 .social-midia i{
-    background-color: var(--color-actions);
-    color: #fff;
-    height: 2rem;
-    width: 2rem;
-    font-size: 1.4rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 50%;
-    transition: background-color 0.6s;
+	background-color: var(--color-actions);
+	color: #fff;
+	height: 2rem;
+	width: 2rem;
+	font-size: 1.4rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 50%;
+	transition: background-color 0.6s;
 }
 .social-midia i:hover{
-    background-color:#1bd80a;
+	background-color: #1bd80a;
+}
+/* AREA DE HABILIDADES */
+.conhecimentos{
+	display: grid;
+	grid-template-columns: repeat(16, 1fr);
+	grid-template-rows: repeat(6, 6rem); 
+	row-gap: .5rem;
+}
+.conhecimento:nth-child(1){
+	grid-column: 4/7;
+	grid-row: 1/3;
+}
+.conhecimento:nth-child(2){
+	grid-column: 3/6;
+	grid-row: 3/5;
+}
+.conhecimento:nth-child(3){
+	grid-column: 4/7;
+	grid-row: 5/-1;
+}
+.conhecimento:nth-child(4){
+	grid-column: 11/14;
+	grid-row: 1/3;
+}
+.conhecimento:nth-child(5){
+	grid-column: 12/15;
+	grid-row: 3/5;
+}
+.conhecimento:nth-child(6){
+	grid-column: 11/14;
+	grid-row: 5/-1;
+}
+.sessao-conhecimentos{
+	background-color:#f5f5f5
+}
+.sessao-header{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.sessao-header h1{
+	font-family: var(--font-primary);
+	font-size: 3rem;
+	color: #4b4b4b;
+	border-bottom: solid 2px #1bd80a;
+	margin-bottom: 1.5rem;
+}
+.conhecimento-header{
+	display: flex;
+	align-items: center;
+	color: #4b4b4b;
+}
+.conhecimento-header i{
+	font-size: 2.5rem;
+}
+.conhecimento-header h3{
+	font-family: var(--font-secundary);
+	font-size: 2rem;
+	padding-left: 1rem;
+}
+.conhecimento-text{
+	font-family: var(--font-secundary);
+	margin-top: 1rem;
+}
+.conhecimentos-img-wrapper{
+	grid-column: 7/11;
+	grid-row: 2/6;
+	width: 100%;
+}
+.conhecimentos-img-wrapper img{
+	object-fit: cover;
+	width: 100%;
 }
